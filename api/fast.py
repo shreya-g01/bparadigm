@@ -20,7 +20,7 @@ app = FastAPI(title="BParadigm Sentiment API")
 # Warm the model once, at boot — not on the first user request. If the model
 # file is missing, the server fails to start (fail fast) instead of erroring
 # on a live user.
-load_model()
+# load_model()
 
 
 @app.get("/")
