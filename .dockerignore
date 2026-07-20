@@ -2,9 +2,7 @@
 __pycache__/
 *.pyc
 .git/
-.gitignore
 notebooks/
 raw_data/
 .env
 *.ipynb
-README.md
