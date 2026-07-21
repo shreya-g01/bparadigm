@@ -18,7 +18,7 @@ TWEETEVAL_TEST = RAW_DATA / "tweeteval" / "sentiment_test.csv"
 
 # --- reddit ---
 REDDIT_DIR       = RAW_DATA / "reddit"
-REDDIT_RAW       = REDDIT_DIR / "reddit_raw.csv"
+REDDIT_RAW       = REDDIT_DIR / "reddit_sentiment.csv"
 REDDIT_PROCESSED = REDDIT_DIR / "reddit_processed"
 REDDIT_BRAND     = REDDIT_PROCESSED / "reddit_brand.csv"
 REDDIT_TOPICS    = REDDIT_PROCESSED / "reddit_topics.csv"
