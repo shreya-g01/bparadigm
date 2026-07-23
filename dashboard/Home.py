@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from html import escape
-import os
 from pathlib import Path
 import sys
 
@@ -14,6 +13,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
+from bparadigm.config.settings import get_settings  # noqa: E402
 from dashboard.components.charts import sentiment_donut, sentiment_trend, topic_breakdown  # noqa: E402
 from dashboard.components.data import load_dashboard_data, load_recent_voice  # noqa: E402
 from dashboard.components.api_client import (  # noqa: E402
@@ -78,9 +78,7 @@ def get_recent_voice():
 data = get_data()
 reviews = data.reviews
 recent_voice = get_recent_voice()
-api_base_url = os.getenv("DASHBOARD_API_BASE_URL", "http://localhost:8000")
-sentiment_model_path = Path(os.getenv("MODEL_SENTIMENT_PATH", "models/sentiment"))
-topic_model_path = Path(os.getenv("MODEL_TOPIC_MODEL_PATH", "models/bertopic_model"))
+settings = get_settings()
 CHART_CONFIG = {
     "displayModeBar": True,
     "displaylogo": False,
@@ -105,11 +103,11 @@ with st.sidebar:
     else:
         st.success("Analysis output connected")
         st.caption(data.source_path)
-    st.caption(f"API · {api_base_url}")
+    st.caption(f"API · {settings.dashboard_api_base_url}")
     st.divider()
     st.caption("MODEL STATUS")
-    sentiment_ready = sentiment_model_path.exists()
-    topic_ready = topic_model_path.exists()
+    sentiment_ready = Path(settings.model_sentiment_path).exists()
+    topic_ready = Path(settings.model_topic_model_path).exists()
     st.caption(f"{'●' if sentiment_ready else '○'} Sentiment model · {'ready' if sentiment_ready else 'artifact pending'}")
     st.caption(f"{'●' if topic_ready else '○'} Topic model · {'ready' if topic_ready else 'phase pending'}")
 

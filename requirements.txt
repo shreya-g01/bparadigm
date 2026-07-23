@@ -2,6 +2,30 @@ numpy==2.2.6
 pandas==2.3.3
 scikit-learn==1.7.2
 joblib==1.5.3
+
+
+# API
 fastapi
+<<<<<<< HEAD
+uvicorn[standard]
+pydantic
+pydantic-settings
+python-dotenv
+httpx
+
+# Dashboard
+streamlit
+plotly
+
+# Text preprocessing
+beautifulsoup4
+emoji
+
+# Dataset archive formats
+zstandard
+
+
+=======
 uvicorn
 httpx
+>>>>>>> master
