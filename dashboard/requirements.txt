@@ -4,7 +4,6 @@ plotly>=5.18,<7
 requests>=2.31,<3
 pydantic-settings>=2,<3
 python-dotenv>=1,<2
-<<<<<<< HEAD
 
 httpx
 .
@@ -12,6 +11,3 @@ pydantic
 pydantic-settings
 plotly
 python-dotenv
-=======
-httpx
->>>>>>> master
