@@ -6,6 +6,7 @@ joblib==1.5.3
 
 # API
 fastapi
+<<<<<<< HEAD
 uvicorn[standard]
 pydantic
 pydantic-settings
@@ -24,3 +25,7 @@ emoji
 zstandard
 
 
+=======
+uvicorn
+httpx
+>>>>>>> master
