@@ -1,11 +1,11 @@
+import os
 from typing import Any
 
 import pandas as pd
 import httpx
 
-from brandparadigm.config.settings import get_settings
 
-API_BASE_URL = get_settings().dashboard_api_base_url.rstrip("/")
+API_BASE_URL = os.getenv("DASHBOARD_API_BASE_URL", "http://localhost:8000").rstrip("/")
 
 
 class DashboardAPIError(RuntimeError):
